@@ -12,7 +12,7 @@ class Counter extends Component {
   //   console.log('Counter - Unmount');
   // }
   render() {
-    console.log("Counter - Rendered");
+    // console.log("Counter - Rendered");
 
     return (
       <div className="row">

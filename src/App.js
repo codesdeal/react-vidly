@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Movies from './components/movies';
 import './App.css';
-import NavBar from './components/navbar';
-import Counters from './components/counters';
+// import NavBar from './components/navbar';
+// import Counters from './components/counters';
 
 class App extends Component {
   state = { 
@@ -14,13 +14,14 @@ class App extends Component {
     ]
  };
 
- constructor(){
-   super();
-  //  console.log("App - Constructor");
- }
- componentDidMount() {
-  //  console.log("App mounted");
- }
+//  constructor(){
+//    super();
+//    console.log("App - Constructor");
+//  }
+//  componentDidMount() {
+//    console.log("App mounted");
+//  }
+
 
  handleIncrement = counter => {
      const counters = [...this.state.counters];
