@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Movies from './components/movies';
+import Movies from './components/movies';
 import './App.css';
 import NavBar from './components/navbar';
 import Counters from './components/counters';
@@ -16,10 +16,10 @@ class App extends Component {
 
  constructor(){
    super();
-   console.log("App - Constructor");
+  //  console.log("App - Constructor");
  }
  componentDidMount() {
-   console.log("App mounted");
+  //  console.log("App mounted");
  }
 
  handleIncrement = counter => {
@@ -52,18 +52,20 @@ class App extends Component {
   };
 
   render() {
-    console.log("App - Rendered");
+    // console.log("App - Rendered");
     return (
       <>
-        <NavBar totalCounters={this.state.counters.filter(c => c.value > 0 ).length} />
+        {/* <NavBar totalCounters={this.state.counters.filter(c => c.value > 0 ).length} /> */}
         <main className='container'>
-          <Counters
+          {/* <Counters
             counters={this.state.counters}
             onReset={this.handleReset}
             onIncrement={this.handleIncrement}
             onDecrement={this.handleDecrement}
             onDelete={this.handleDelete}
-          />
+          /> */}
+
+          <Movies />
         </main>
       </>
     );
