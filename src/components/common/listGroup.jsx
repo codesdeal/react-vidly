@@ -18,7 +18,7 @@ const ListGroup = props => {
                 className={ item === selectedItem ? "list-group-item active" : "list-group-item"}>
                     { item[textProperty] }
                 </li>
-            )};
+            )}
         </ul>
     );
 }
