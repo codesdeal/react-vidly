@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Movies from './components/movies';
-import './App.css';
 // import NavBar from './components/navbar';
 // import Counters from './components/counters';
+import LoginForm from './components/loginForm';
+import './App.css';
+import RegisterForm from './components/registerForm';
 
 class App extends Component {
   state = { 
@@ -66,7 +68,9 @@ class App extends Component {
             onDelete={this.handleDelete}
           /> */}
 
-          <Movies />
+          {/* <Movies /> */}
+          {/* <LoginForm /> */}
+          <RegisterForm />
         </main>
       </>
     );
