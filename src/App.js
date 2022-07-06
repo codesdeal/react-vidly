@@ -1,80 +1,48 @@
 import React, { Component } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Movies from './components/movies';
-// import NavBar from './components/navbar';
-// import Counters from './components/counters';
+import MoviesForm from './components/movieForm';
+import NavBar from './components/navbar';
 import LoginForm from './components/loginForm';
-import './App.css';
 import RegisterForm from './components/registerForm';
+import Home from './components/home';
+import Dashboard from './components/admin/dashboard';
+import Products from './components/products';
+import ProductDetails from './components/productDetails';
+import NotFound from './components/notFound';
+import Posts from './components/posts';
+import Customers from './components/customers';
+import Rentals from './components/rentals';
+import { withRouter } from 'react-router-dom';
+import './App.css';
+
 
 class App extends Component {
-  state = { 
-    counters: [
-        { id: 1, value: 4 },
-        { id: 2, value: 0 },
-        { id: 3, value: 0 },
-        { id: 4, value: 0 }
-    ]
- };
-
-//  constructor(){
-//    super();
-//    console.log("App - Constructor");
-//  }
-//  componentDidMount() {
-//    console.log("App mounted");
-//  }
-
-
- handleIncrement = counter => {
-     const counters = [...this.state.counters];
-     const index = counters.indexOf(counter);
-     counters[index] = { ...counter };
-     counters[index].value++;
-     this.setState({ counters });
- }
-
- handleDecrement = counter => {
-  const counters = [...this.state.counters];
-  const index = counters.indexOf(counter);
-  counters[index] = { ...counter };
-  counters[index].value--;
-  this.setState({ counters });
-}
-
- handleReset = () => {
-    const counters = this.state.counters.map(c => {
-         c.value = 0;
-         return c;
-     });
-     this.setState({ counters });
- };
-
- handleDelete = (counterId) => {
-    const counters = this.state.counters.filter(c => c.id != counterId);
-    this.setState({ counters });
-  };
-
+ 
   render() {
-    // console.log("App - Rendered");
     return (
       <>
-        {/* <NavBar totalCounters={this.state.counters.filter(c => c.value > 0 ).length} /> */}
+        <NavBar />
         <main className='container'>
-          {/* <Counters
-            counters={this.state.counters}
-            onReset={this.handleReset}
-            onIncrement={this.handleIncrement}
-            onDecrement={this.handleDecrement}
-            onDelete={this.handleDelete}
-          /> */}
-
-          {/* <Movies /> */}
-          {/* <LoginForm /> */}
-          <RegisterForm />
+          <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/movies/:id" component= {MoviesForm} />
+              <Route path="/movies" component= {Movies} />
+              <Route path="/products/:id" component={ProductDetails} />
+              <Route path="/products" render={props => <Products sortBy="newest" {...props}/>} />
+              <Route path="/posts/:year?/:month?" component={Posts} />
+              <Route path="/login" component={LoginForm} />
+              <Route path="/register" component={RegisterForm} />
+              <Route path="/admin" component={Dashboard} />
+              <Route path="/customers" component={Customers} />
+              <Route path="/rentals" component={Rentals} />
+              <Route path="/not-found" component={NotFound} />
+              <Redirect to="/not-found" />
+          </Switch>
         </main>
       </>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
