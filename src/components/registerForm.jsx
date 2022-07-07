@@ -4,14 +4,14 @@ import Form from './common/form';
 
 class RegisterForm extends Form {
     state = {
-        data: { username: '', password: '', name: ""},
+        data: { name: '', email: '', password: ''},
         errors : {}
     };
 
     schema = {
-        username: Joi.string().required().label('Username'),
-        password: Joi.string().required().label('Password'),
-        name: Joi.string().required().label('name')
+        email: Joi.string().email().required().label('Email'),
+        password: Joi.string().required().min(8).max(16).label('Password'),
+        name: Joi.string().required().min(3).label('Name')
     };
 
     doSubmit = () => {
@@ -23,9 +23,9 @@ class RegisterForm extends Form {
             <div className="container">
                 <h1>Register</h1>
                 <form onSubmit={this.handleSubmit}>
-                    {this.renderInput('username', 'Username')}
-                    {this.renderInput('password', 'Password', "password")} 
                     {this.renderInput('name', 'Name')} 
+                    {this.renderInput('email', 'Email')}
+                    {this.renderInput('password', 'Password', "password")}                     
                     {this.renderButton('Register')}
                 </form>
             </div>
