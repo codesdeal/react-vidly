@@ -9,12 +9,12 @@ class LoginForm extends Form {
     };
 
     schema = {
-        username: Joi.string().required().label('Username'),
-        password: Joi.string().required().label('Password')
+        username: Joi.string().required().min(3).label('Username'),
+        password: Joi.string().required().min(5).max(12).label('Password')
     };
 
     doSubmit = () => {
-        console.log("submitted");
+        console.log("Login form submitted");
     }
   
     render() { 
