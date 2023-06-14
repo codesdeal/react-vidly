@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/wpmartsc/womenspeech.com/git-clone-file
+    - /bin/cp -r * $DEPLOYPATH
